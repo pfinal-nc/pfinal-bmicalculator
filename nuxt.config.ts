@@ -20,7 +20,7 @@ export default defineNuxtConfig({
           name: 'description', 
           content: 'Free BMI calculator online - Calculate your Body Mass Index instantly. Get BMI categories, health recommendations, and BMI chart. Accurate BMI calculation for adults in metric and imperial units.' 
         },
-        { name: 'keywords', content: 'BMI calculator, body mass index calculator, free BMI calculator, BMI chart, BMI categories, weight calculator, health calculator, BMI formula, calculate BMI, BMI ranges, healthy weight, obesity calculator, underweight calculator, overweight calculator, BMI tool, body fat calculator, health assessment, weight management, fitness calculator, medical calculator' },
+                    { name: 'keywords', content: 'BMI calculator, body mass index calculator, free BMI calculator, BMI chart, BMI categories, weight calculator, health calculator, BMI formula, calculate BMI, BMI ranges, healthy weight, obesity calculator, underweight calculator, overweight calculator, BMI tool, body fat calculator, health assessment, weight management, fitness calculator, medical calculator, pfnalclub' },
         { property: 'og:title', content: 'Free BMI Calculator - Online Body Mass Index Tool' },
         { property: 'og:description', content: 'Free BMI calculator online - Calculate your Body Mass Index instantly. Get BMI categories, health recommendations, and BMI chart. Accurate BMI calculation for adults.' },
         { property: 'og:type', content: 'website' },

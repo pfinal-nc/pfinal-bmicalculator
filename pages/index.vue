@@ -395,7 +395,7 @@ useHead({
   title: 'Free BMI Calculator - Calculate Your Body Mass Index Online',
   meta: [
     { name: 'description', content: 'Calculate your BMI instantly with our free online calculator. Get your weight category and health insights in seconds.' },
-    { name: 'keywords', content: 'BMI calculator, body mass index, weight calculator, health calculator, BMI chart, free BMI tool' }
+    { name: 'keywords', content: 'BMI calculator, body mass index, weight calculator, health calculator, BMI chart, free BMI tool, pfnalclub' }
   ]
 })
 

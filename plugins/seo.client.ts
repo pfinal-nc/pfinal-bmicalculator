@@ -68,7 +68,8 @@ export default defineNuxtPlugin(() => {
       "BMI Categories",
       "Health Recommendations",
       "BMI Chart",
-      "Weight Management"
+      "Weight Management",
+      "pfnalclub"
     ],
     "author": {
       "@type": "Organization",

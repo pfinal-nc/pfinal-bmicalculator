@@ -353,7 +353,7 @@ useHead({
   title: 'BMI Chart - Visual Guide to Body Mass Index | BMI Calculator',
   meta: [
     { name: 'description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units. Find your healthy weight range and BMI category instantly.' },
-    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart' }
+    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart, pfnalclub' }
   ]
 })
 

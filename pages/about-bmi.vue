@@ -224,7 +224,7 @@ useHead({
   title: 'About BMI - Complete Guide to Body Mass Index | BMI Calculator',
   meta: [
     { name: 'description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations. Expert health assessment information.' },
-    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations' }
+    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations, pfnalclub' }
   ]
 })
 
