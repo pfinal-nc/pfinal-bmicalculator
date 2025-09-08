@@ -9,10 +9,10 @@
               class="w-20 h-20 object-contain"
             />
           </div>
-          <h1 class="text-4xl font-bold text-white mb-4">
+          <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Free Online BMI Calculator - Calculate Body Mass Index Instantly
           </h1>
-          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Use our free BMI calculator to calculate your Body Mass Index instantly. Get accurate BMI results, 
             learn about BMI categories, and receive personalized health recommendations. 
             Our BMI tool supports both metric and imperial units for precise calculations.

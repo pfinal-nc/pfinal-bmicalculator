@@ -10,10 +10,10 @@
             class="w-16 h-16 object-contain"
           />
         </div>
-        <h1 class="text-4xl font-bold text-white mb-4">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           About BMI - Body Mass Index
         </h1>
-        <p class="text-xl text-gray-300">
+        <p class="text-xl text-gray-600 dark:text-gray-300">
           Learn everything about BMI, how it's calculated, and its importance for health assessment.
         </p>
       </div>

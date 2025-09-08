@@ -66,7 +66,7 @@ export default defineNuxtConfig({
     icons: ['heroicons', 'lucide']
   },
 
-  // 颜色模式配置
+  // 颜色模式配置 - 强制深色模式
   colorMode: {
     preference: 'dark',
     fallback: 'dark',
@@ -75,7 +75,8 @@ export default defineNuxtConfig({
     componentName: 'ColorScheme',
     classPrefix: '',
     classSuffix: '',
-    storageKey: 'nuxt-color-mode'
+    storageKey: 'nuxt-color-mode',
+    dataValue: 'dark'
   },
 
   // 路由规则

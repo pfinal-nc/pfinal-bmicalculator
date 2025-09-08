@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-900">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
     <!-- 导航栏 -->
     <UHeader>
                 <template #left>
