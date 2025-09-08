@@ -59,6 +59,9 @@ export default defineNuxtConfig({
                     src: 'https://shoukigaigoors.net/act/files/tag.min.js?z=9841798',
                     'data-cfasync': 'false',
                     async: true
+                  },
+                  {
+                    innerHTML: "(function(s){s.dataset.zone='9841841',s.src='https://vemtoutcheeg.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))"
                   }
                 ]
     }
