@@ -6,9 +6,19 @@
   html {
     font-family: 'Inter', system-ui, sans-serif;
   }
-  
+
   body {
-    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white;
+    @apply bg-gray-900 text-white;
+  }
+  
+  /* 强制深色模式 */
+  html {
+    color-scheme: dark;
+  }
+  
+  /* 确保所有元素都使用深色模式 */
+  * {
+    color-scheme: dark;
   }
 }
 
@@ -23,24 +33,24 @@
   }
   
   .prose {
-    @apply text-gray-700 dark:text-gray-300;
+    @apply text-gray-300;
   }
-  
+
   .prose h1,
   .prose h2,
   .prose h3,
   .prose h4,
   .prose h5,
   .prose h6 {
-    @apply text-gray-900 dark:text-white;
+    @apply text-white;
   }
-  
+
   .prose code {
-    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+    @apply bg-gray-800 px-2 py-1 rounded text-sm;
   }
-  
+
   .prose pre {
-    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+    @apply bg-gray-800 p-4 rounded-lg overflow-x-auto;
   }
 }
 
@@ -49,13 +59,33 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* 强制深色模式全局样式 */
+html {
+  color-scheme: dark !important;
+}
+
+body {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+/* 确保所有组件都使用深色模式 */
+.dark {
+  color-scheme: dark;
+}
+
+/* 覆盖可能的浅色模式样式 */
+.light {
+  color-scheme: dark !important;
 }

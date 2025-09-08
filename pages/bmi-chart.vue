@@ -10,10 +10,10 @@
             class="w-16 h-16 object-contain"
           />
         </div>
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 class="text-4xl font-bold text-white mb-4">
           BMI Chart - Visual Guide
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300">
+        <p class="text-xl text-gray-300">
           Visual representation of BMI categories and healthy weight ranges for different heights.
         </p>
       </div>
