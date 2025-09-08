@@ -4,11 +4,7 @@
       <!-- 页面标题 -->
       <div class="text-center mb-12">
         <div class="flex justify-center mb-6">
-          <img 
-            src="/logo.png" 
-            alt="BMI Calculator Logo" 
-            class="w-16 h-16 object-contain"
-          />
+          <BMILogo />
         </div>
         <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           About BMI - Body Mass Index

@@ -3,11 +3,7 @@
         <!-- Hero Section -->
         <div class="text-center mb-12">
           <div class="flex justify-center mb-6">
-            <img 
-              src="/logo.png" 
-              alt="BMI Calculator Logo" 
-              class="w-20 h-20 object-contain"
-            />
+            <BMILogo />
           </div>
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Free Online BMI Calculator - Calculate Body Mass Index Instantly
@@ -32,41 +28,69 @@
           </template>
 
           <UForm :state="form" class="space-y-6" @submit="calculateBMI">
-            <!-- 单位切换 -->
+            <!-- 单位切换 - 优化版本 -->
             <div class="flex justify-center mb-6">
-              <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-sm font-medium text-gray-600 dark:text-gray-400 px-3 py-1">
-                    Units:
-                  </span>
-                  <UToggle
-                    v-model="isMetric"
-                    :ui="{ 
-                      container: 'inline-flex items-center',
-                      wrapper: 'relative inline-flex h-8 w-14 items-center rounded-full transition-colors',
-                      base: 'inline-block h-6 w-6 transform rounded-full bg-white shadow-md transition-transform',
-                      active: 'translate-x-7',
-                      inactive: 'translate-x-1'
-                    }"
-                    :labels="{
-                      on: 'Metric',
-                      off: 'Imperial'
-                    }"
-                  />
-                  <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
-                    <span :class="{ 'text-primary font-medium': isMetric }">
-                      kg, cm
-                    </span>
-                    <span :class="{ 'text-primary font-medium': !isMetric }">
-                      lbs, ft
-                    </span>
+              <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-2">
+                <div class="flex items-center gap-4">
+                  <!-- 单位标签 -->
+                  <div class="flex items-center gap-2">
+                    <UIcon name="i-heroicons-scale" class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-400">Units:</span>
+                  </div>
+                  
+                  <!-- 切换按钮组 -->
+                  <div class="flex bg-white dark:bg-gray-700 rounded-lg p-1 shadow-sm">
+                    <button
+                      @click="isMetric = true"
+                      :class="[
+                        'px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
+                        isMetric 
+                          ? 'bg-blue-500 text-white shadow-sm' 
+                          : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                      ]"
+                    >
+                      <div class="flex items-center gap-2">
+                        <UIcon name="i-heroicons-globe-europe-africa" class="w-4 h-4" />
+                        <span>Metric</span>
+                        <span class="text-xs opacity-75">(kg, cm)</span>
+                      </div>
+                    </button>
+                    
+                    <button
+                      @click="isMetric = false"
+                      :class="[
+                        'px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
+                        !isMetric 
+                          ? 'bg-blue-500 text-white shadow-sm' 
+                          : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
+                      ]"
+                    >
+                      <div class="flex items-center gap-2">
+                        <UIcon name="i-heroicons-globe-americas" class="w-4 h-4" />
+                        <span>Imperial</span>
+                        <span class="text-xs opacity-75">(lbs, ft)</span>
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- 错误提示 -->
+            <UAlert
+              v-if="errors.general"
+              color="red"
+              variant="soft"
+              :title="errors.general"
+              class="mb-4"
+            />
+
             <!-- 身高输入 -->
-            <UFormGroup label="Height" required>
+            <UFormGroup 
+              label="Height" 
+              required
+              :error="errors.height"
+            >
               <div class="space-y-3">
                 <!-- 公制输入 -->
                 <div v-if="isMetric" class="flex items-center gap-3">
@@ -76,11 +100,12 @@
                       type="number"
                       placeholder="170"
                       size="lg"
-                      :ui="{ 
+                      :ui="{
                         base: 'w-full',
                         wrapper: 'relative',
                         input: 'text-center text-lg font-medium'
                       }"
+                      @blur="validateInput('heightCm', form.heightCm)"
                     />
                   </div>
                   <div class="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
@@ -92,17 +117,18 @@
                 <div v-else class="space-y-3">
                   <div class="flex items-center gap-3">
                     <div class="flex-1">
-                      <UInput
-                        v-model.number="form.heightFeet"
-                        type="number"
-                        placeholder="5"
-                        size="lg"
-                        :ui="{ 
-                          base: 'w-full',
-                          wrapper: 'relative',
-                          input: 'text-center text-lg font-medium'
-                        }"
-                      />
+                    <UInput
+                      v-model.number="form.heightFeet"
+                      type="number"
+                      placeholder="5"
+                      size="lg"
+                      :ui="{
+                        base: 'w-full',
+                        wrapper: 'relative',
+                        input: 'text-center text-lg font-medium'
+                      }"
+                      @blur="validateInput('heightFeet', form.heightFeet)"
+                    />
                     </div>
                     <div class="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
                       <span class="text-sm font-medium text-gray-600 dark:text-gray-400">ft</span>
@@ -110,17 +136,18 @@
                   </div>
                   <div class="flex items-center gap-3">
                     <div class="flex-1">
-                      <UInput
-                        v-model.number="form.heightInches"
-                        type="number"
-                        placeholder="10"
-                        size="lg"
-                        :ui="{ 
-                          base: 'w-full',
-                          wrapper: 'relative',
-                          input: 'text-center text-lg font-medium'
-                        }"
-                      />
+                    <UInput
+                      v-model.number="form.heightInches"
+                      type="number"
+                      placeholder="10"
+                      size="lg"
+                      :ui="{
+                        base: 'w-full',
+                        wrapper: 'relative',
+                        input: 'text-center text-lg font-medium'
+                      }"
+                      @blur="validateInput('heightInches', form.heightInches)"
+                    />
                     </div>
                     <div class="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
                       <span class="text-sm font-medium text-gray-600 dark:text-gray-400">in</span>
@@ -131,7 +158,11 @@
             </UFormGroup>
 
             <!-- 体重输入 -->
-            <UFormGroup label="Weight" required>
+            <UFormGroup 
+              label="Weight" 
+              required
+              :error="errors.weight"
+            >
               <div class="flex items-center gap-3">
                 <div class="flex-1">
                   <UInput
@@ -139,11 +170,12 @@
                     type="number"
                     :placeholder="isMetric ? '70' : '150'"
                     size="lg"
-                    :ui="{ 
+                    :ui="{
                       base: 'w-full',
                       wrapper: 'relative',
                       input: 'text-center text-lg font-medium'
                     }"
+                    @blur="validateInput('weight', form.weight)"
                   />
                 </div>
                 <div class="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
@@ -158,13 +190,13 @@
             <div class="pt-4">
               <UButton
                 type="submit"
-                color="primary"
+                :color="isFormValid ? 'green' : 'gray'"
                 size="xl"
                 block
                 :loading="isCalculating"
                 :disabled="!isFormValid"
                 :ui="{
-                  base: 'relative inline-flex items-center justify-center gap-2 w-full',
+                  base: 'relative inline-flex items-center justify-center gap-2 w-full transition-all duration-200',
                   font: 'font-semibold',
                   rounded: 'rounded-lg',
                   padding: 'px-6 py-4',
@@ -172,11 +204,27 @@
                     xl: 'text-lg'
                   }
                 }"
+                class="shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
               >
-                <UIcon name="i-heroicons-calculator" class="w-6 h-6" />
-                <span v-if="!isCalculating">Calculate BMI</span>
+                <UIcon 
+                  :name="isCalculating ? 'i-heroicons-arrow-path' : 'i-heroicons-calculator'" 
+                  :class="[
+                    'w-6 h-6',
+                    isCalculating ? 'animate-spin' : ''
+                  ]"
+                />
+                <span v-if="!isCalculating">
+                  {{ isFormValid ? 'Calculate BMI' : 'Fill in all fields' }}
+                </span>
                 <span v-else>Calculating...</span>
               </UButton>
+              
+              <!-- 按钮提示 -->
+              <div v-if="!isFormValid" class="mt-2 text-center">
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  Please fill in all required fields to calculate your BMI
+                </p>
+              </div>
             </div>
           </UForm>
         </UCard>
@@ -364,6 +412,37 @@ const form = reactive({
   weight: null
 })
 
+// 错误状态
+const errors = reactive({
+  height: '',
+  weight: '',
+  general: ''
+})
+
+// 输入验证规则
+const validationRules = {
+  heightCm: {
+    min: 50,
+    max: 272,
+    message: 'Height must be between 50cm and 272cm'
+  },
+  heightFeet: {
+    min: 3,
+    max: 8,
+    message: 'Height must be between 3ft and 8ft'
+  },
+  heightInches: {
+    min: 0,
+    max: 11,
+    message: 'Inches must be between 0 and 11'
+  },
+  weight: {
+    min: 20,
+    max: 300,
+    message: 'Weight must be between 20kg and 300kg (44lbs and 660lbs)'
+  }
+}
+
 // BMI 分类数据
 const bmiCategories = ref([
   {
@@ -396,21 +475,85 @@ const bmiCategories = ref([
   }
 ])
 
+// 输入验证函数
+const validateInput = (field, value) => {
+  const rule = validationRules[field]
+  if (!rule) return true
+  
+  if (value === null || value === undefined || value === '') {
+    return true // 空值不显示错误，只在提交时验证
+  }
+  
+  if (value < rule.min || value > rule.max) {
+    return rule.message
+  }
+  
+  return true
+}
+
+// 验证所有输入
+const validateAllInputs = () => {
+  errors.height = ''
+  errors.weight = ''
+  errors.general = ''
+  
+  let isValid = true
+  
+  if (isMetric.value) {
+    const heightError = validateInput('heightCm', form.heightCm)
+    if (heightError !== true) {
+      errors.height = heightError
+      isValid = false
+    }
+  } else {
+    const feetError = validateInput('heightFeet', form.heightFeet)
+    const inchesError = validateInput('heightInches', form.heightInches)
+    if (feetError !== true) {
+      errors.height = feetError
+      isValid = false
+    } else if (inchesError !== true) {
+      errors.height = inchesError
+      isValid = false
+    }
+  }
+  
+  const weightError = validateInput('weight', form.weight)
+  if (weightError !== true) {
+    errors.weight = weightError
+    isValid = false
+  }
+  
+  return isValid
+}
+
 // 计算表单验证
 const isFormValid = computed(() => {
   if (isMetric.value) {
-    return form.heightCm && form.weight && form.heightCm > 0 && form.weight > 0
+    return form.heightCm && form.weight && 
+           form.heightCm > 0 && form.weight > 0 &&
+           validateAllInputs()
   } else {
     return form.heightFeet && form.heightInches && form.weight && 
-           form.heightFeet > 0 && form.heightInches >= 0 && form.weight > 0
+           form.heightFeet > 0 && form.heightInches >= 0 && form.weight > 0 &&
+           validateAllInputs()
   }
 })
 
 // BMI 计算函数
 const calculateBMI = async () => {
-  if (!isFormValid.value) return
+  // 验证输入
+  if (!validateAllInputs()) {
+    errors.general = 'Please fix the input errors above'
+    return
+  }
+  
+  if (!isFormValid.value) {
+    errors.general = 'Please fill in all required fields'
+    return
+  }
   
   isCalculating.value = true
+  errors.general = ''
   
   try {
     let heightInMeters
@@ -455,6 +598,7 @@ const calculateBMI = async () => {
     
   } catch (error) {
     console.error('BMI calculation error:', error)
+    errors.general = 'An error occurred while calculating BMI. Please try again.'
   } finally {
     isCalculating.value = false
   }
