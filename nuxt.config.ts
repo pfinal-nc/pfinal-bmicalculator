@@ -5,8 +5,13 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/sitemap.xml', '/robots.txt']
+      routes: ['/sitemap.xml', '/robots.txt', '/favicon.ico', '/logo.png']
     }
+  },
+
+  // SEO 配置
+  seo: {
+    redirectToCanonicalSiteUrl: true
   },
 
   // 应用配置

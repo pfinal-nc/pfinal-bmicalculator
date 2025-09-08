@@ -1,6 +1,9 @@
 <template>
   <UContainer class="py-8">
     <div class="max-w-6xl mx-auto">
+      <!-- Breadcrumb -->
+      <Breadcrumb :items="breadcrumbItems" />
+      
       <!-- 页面标题 -->
       <div class="text-center mb-12">
         <div class="flex justify-center mb-6">
@@ -350,12 +353,40 @@
 <script setup>
 // 设置页面元数据
 useHead({
-  title: 'BMI Chart - Visual Guide to Body Mass Index | BMI Calculator',
+  title: 'BMI Chart 2024 - Visual Guide to Body Mass Index | Weight Range Calculator',
   meta: [
-    { name: 'description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units. Find your healthy weight range and BMI category instantly.' },
-    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart, pfnalclub' }
+    { name: 'description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units. Find your healthy weight range and BMI category instantly. Free BMI chart tool.' },
+    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart, BMI reference chart, weight range calculator, pfnalclub' },
+    { name: 'author', content: 'BMI Calculator Team' },
+    { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+    { name: 'googlebot', content: 'index, follow' },
+    { name: 'bingbot', content: 'index, follow' },
+    { property: 'og:title', content: 'BMI Chart 2024 - Visual Guide to Body Mass Index' },
+    { property: 'og:description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units. Find your healthy weight range instantly.' },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: 'https://bmicalculator.friday-go.icu/bmi-chart' },
+    { property: 'og:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { property: 'og:site_name', content: 'BMI Calculator' },
+    { property: 'og:locale', content: 'en_US' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'BMI Chart 2024 - Visual Guide to Body Mass Index' },
+    { name: 'twitter:description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units.' },
+    { name: 'twitter:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { name: 'canonical', content: 'https://bmicalculator.friday-go.icu/bmi-chart' },
+    { name: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/bmi-chart' },
+    { name: 'theme-color', content: '#3b82f6' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://bmicalculator.friday-go.icu/bmi-chart' },
+    { rel: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/bmi-chart' }
   ]
 })
+
+// 面包屑导航数据
+const breadcrumbItems = [
+  { label: 'BMI Calculator', to: '/', title: 'BMI Calculator Home' },
+  { label: 'BMI Chart', title: 'BMI Chart and Weight Ranges' }
+]
 
 // BMI 分类数据
 const bmiData = {

@@ -1,6 +1,9 @@
 <template>
   <UContainer class="py-8">
     <div class="max-w-4xl mx-auto">
+      <!-- Breadcrumb -->
+      <Breadcrumb :items="breadcrumbItems" />
+      
       <!-- 页面标题 -->
       <div class="text-center mb-12">
         <div class="flex justify-center mb-6">
@@ -221,12 +224,40 @@
 <script setup>
 // 设置页面元数据
 useHead({
-  title: 'About BMI - Complete Guide to Body Mass Index | BMI Calculator',
+  title: 'About BMI - Complete Guide to Body Mass Index 2024 | BMI Calculator',
   meta: [
-    { name: 'description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations. Expert health assessment information.' },
-    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations, pfnalclub' }
+    { name: 'description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations. Expert health assessment information and BMI formula explained.' },
+    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations, BMI guide, BMI explained, BMI meaning, pfnalclub' },
+    { name: 'author', content: 'BMI Calculator Team' },
+    { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+    { name: 'googlebot', content: 'index, follow' },
+    { name: 'bingbot', content: 'index, follow' },
+    { property: 'og:title', content: 'About BMI - Complete Guide to Body Mass Index 2024' },
+    { property: 'og:description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations.' },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:url', content: 'https://bmicalculator.friday-go.icu/about-bmi' },
+    { property: 'og:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { property: 'og:site_name', content: 'BMI Calculator' },
+    { property: 'og:locale', content: 'en_US' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'About BMI - Complete Guide to Body Mass Index 2024' },
+    { name: 'twitter:description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations.' },
+    { name: 'twitter:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { name: 'canonical', content: 'https://bmicalculator.friday-go.icu/about-bmi' },
+    { name: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/about-bmi' },
+    { name: 'theme-color', content: '#3b82f6' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://bmicalculator.friday-go.icu/about-bmi' },
+    { rel: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/about-bmi' }
   ]
 })
+
+// 面包屑导航数据
+const breadcrumbItems = [
+  { label: 'BMI Calculator', to: '/', title: 'BMI Calculator Home' },
+  { label: 'About BMI', title: 'About BMI Guide' }
+]
 
 // BMI 分类数据
 const bmiData = {

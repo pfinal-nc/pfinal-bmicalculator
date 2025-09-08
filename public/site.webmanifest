@@ -1,0 +1,29 @@
+{
+  "name": "BMI Calculator - Free Body Mass Index Tool",
+  "short_name": "BMI Calculator",
+  "description": "Free online BMI calculator to calculate your Body Mass Index instantly. Get BMI categories, health recommendations, and BMI chart.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "bmi-calculator-app"
+}

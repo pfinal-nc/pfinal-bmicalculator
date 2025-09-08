@@ -1,17 +1,20 @@
 <template>
   <UContainer class="py-8">
+        <!-- Breadcrumb -->
+        <Breadcrumb :items="breadcrumbItems" />
+        
         <!-- Hero Section -->
         <div class="text-center mb-12">
           <div class="flex justify-center mb-6">
             <BMILogo />
           </div>
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Free Online BMI Calculator - Calculate Body Mass Index Instantly
+            Free BMI Calculator 2024 - Calculate Body Mass Index Online
           </h1>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Use our free BMI calculator to calculate your Body Mass Index instantly. Get accurate BMI results, 
-            learn about BMI categories, and receive personalized health recommendations. 
-            Our BMI tool supports both metric and imperial units for precise calculations.
+            Calculate your BMI instantly with our free online BMI calculator. Get accurate Body Mass Index results, 
+            BMI categories, and personalized health recommendations. Our BMI tool supports both metric (kg/cm) and 
+            imperial (lbs/ft) units for precise BMI calculations. Perfect for weight management and health assessment.
           </p>
         </div>
 
@@ -314,15 +317,21 @@
             <p>
               Body Mass Index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. 
               It's a useful screening tool to identify potential weight problems, though it doesn't directly measure body fat.
+              Our free BMI calculator provides instant BMI calculation with accurate results for health assessment.
             </p>
             
             <h3>How is BMI calculated?</h3>
             <p>
-              BMI is calculated by dividing your weight in kilograms by your height in meters squared:
+              BMI is calculated by dividing your weight in kilograms by your height in meters squared. 
+              Use our BMI calculator for instant BMI calculation:
             </p>
             <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-center">
               <code class="text-lg font-mono">BMI = weight (kg) / height (m)²</code>
             </div>
+            <p>
+              For imperial units: BMI = (weight in pounds × 703) / (height in inches)². 
+              Our BMI tool supports both metric and imperial units for precise BMI calculation.
+            </p>
           </div>
         </UCard>
 
@@ -392,12 +401,56 @@
 <script setup>
 // 设置页面元数据
 useHead({
-  title: 'Free BMI Calculator - Calculate Your Body Mass Index Online',
+  title: 'Free BMI Calculator 2024 - Calculate Body Mass Index Online | Instant Results',
   meta: [
-    { name: 'description', content: 'Calculate your BMI instantly with our free online calculator. Get your weight category and health insights in seconds.' },
-    { name: 'keywords', content: 'BMI calculator, body mass index, weight calculator, health calculator, BMI chart, free BMI tool, pfnalclub' }
+    { name: 'description', content: 'Free BMI calculator online - Calculate your Body Mass Index instantly with our accurate tool. Get BMI categories, health recommendations, and personalized insights. Supports metric and imperial units.' },
+    { name: 'keywords', content: 'BMI calculator, body mass index calculator, free BMI calculator, BMI chart, BMI categories, weight calculator, health calculator, BMI formula, calculate BMI, BMI ranges, healthy weight, obesity calculator, underweight calculator, overweight calculator, BMI tool, body fat calculator, health assessment, weight management, fitness calculator, medical calculator, pfnalclub' },
+    { name: 'author', content: 'BMI Calculator Team' },
+    { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
+    { name: 'googlebot', content: 'index, follow' },
+    { name: 'bingbot', content: 'index, follow' },
+    { property: 'og:title', content: 'Free BMI Calculator 2024 - Calculate Body Mass Index Online' },
+    { property: 'og:description', content: 'Calculate your BMI instantly with our free online calculator. Get BMI categories, health recommendations, and personalized insights.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://bmicalculator.friday-go.icu' },
+    { property: 'og:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:site_name', content: 'BMI Calculator' },
+    { property: 'og:locale', content: 'en_US' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Free BMI Calculator 2024 - Calculate Body Mass Index Online' },
+    { name: 'twitter:description', content: 'Calculate your BMI instantly with our free online calculator. Get BMI categories and health recommendations.' },
+    { name: 'twitter:image', content: 'https://bmicalculator.friday-go.icu/logo.png' },
+    { name: 'twitter:site', content: '@bmicalculator' },
+    { name: 'twitter:creator', content: '@bmicalculator' },
+    { name: 'canonical', content: 'https://bmicalculator.friday-go.icu' },
+    { name: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu' },
+    { name: 'theme-color', content: '#3b82f6' },
+    { name: 'msapplication-TileColor', content: '#3b82f6' },
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+    { name: 'apple-mobile-web-app-title', content: 'BMI Calculator' },
+    { name: 'application-name', content: 'BMI Calculator' },
+    { name: 'msapplication-tooltip', content: 'Free BMI Calculator Online' },
+    { name: 'msapplication-starturl', content: '/' },
+    { name: 'format-detection', content: 'telephone=no' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://bmicalculator.friday-go.icu' },
+    { rel: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu' },
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/logo.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/logo.png' },
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/logo.png' },
+    { rel: 'manifest', href: '/site.webmanifest' }
   ]
 })
+
+// 面包屑导航数据
+const breadcrumbItems = [
+  { label: 'BMI Calculator', to: '/', title: 'BMI Calculator Home' }
+]
 
 // 响应式数据
 const isMetric = ref(true)
