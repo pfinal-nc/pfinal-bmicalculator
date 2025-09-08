@@ -107,7 +107,9 @@
               <h3>Age and Sex Differences</h3>
               <p>
                 BMI doesn't account for age or sex differences in body composition. Women tend to have more body fat 
-                than men with the same BMI.
+                than men with the same BMI. This is why BMI chart by age and gender considerations are important for 
+                accurate health assessment. Our BMI calculator for adults provides general guidelines, but individual 
+                variations exist.
               </p>
               
               <h3>Ethnic Variations</h3>
@@ -120,6 +122,13 @@
               <p>
                 BMI doesn't indicate where body fat is located. Abdominal fat (visceral fat) is more dangerous 
                 than fat in other areas of the body.
+              </p>
+              
+              <h3>BMI Calculator for Children</h3>
+              <p>
+                Our BMI calculator is designed for adults 18 and older. BMI calculator for children requires 
+                different interpretation using age and sex percentiles. Children's BMI changes significantly 
+                with age and development, so pediatric BMI charts are used instead of adult categories.
               </p>
             </div>
           </UCard>
@@ -227,7 +236,7 @@ useHead({
   title: 'About BMI - Complete Guide to Body Mass Index 2024 | BMI Calculator',
   meta: [
     { name: 'description', content: 'Complete guide to BMI (Body Mass Index): Learn how BMI is calculated, understand BMI categories, BMI ranges, and BMI limitations. Expert health assessment information and BMI formula explained.' },
-    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations, BMI guide, BMI explained, BMI meaning, pfnalclub' },
+    { name: 'keywords', content: 'BMI, body mass index, BMI calculation, BMI formula, BMI categories, BMI ranges, BMI limitations, health assessment, weight management, obesity, underweight, overweight, healthy weight, BMI chart, BMI tool, medical calculator, health calculator, fitness calculator, body fat percentage, weight loss, weight gain, health recommendations, BMI guide, BMI explained, BMI meaning, is BMI accurate, BMI calculator for children, BMI chart by age and gender, BMI calculator kg cm, BMI accuracy, BMI limitations, BMI vs body fat, BMI calculator adult, pfnalclub' },
     { name: 'author', content: 'BMI Calculator Team' },
     { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     { name: 'googlebot', content: 'index, follow' },
@@ -250,6 +259,61 @@ useHead({
   link: [
     { rel: 'canonical', href: 'https://bmicalculator.friday-go.icu/about-bmi' },
     { rel: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/about-bmi' }
+  ]
+})
+
+// 专门的FAQ Schema for About BMI page
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is BMI accurate for everyone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMI is a useful screening tool but has limitations. It may not accurately reflect body composition for athletes, elderly people, or those with high muscle mass. BMI doesn't distinguish between muscle and fat, and doesn't account for age, sex, or ethnic differences in body composition."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use BMI calculator for children?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMI calculations for children and teenagers are different from adults. Children's BMI is calculated using the same formula but interpreted differently based on age and sex percentiles. Our BMI calculator is designed for adults 18 and older."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between BMI calculator kg cm and imperial units?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMI calculator kg cm uses metric units (kilograms for weight, centimeters for height), while imperial units use pounds and feet/inches. Both methods give the same BMI result, but metric calculation is: BMI = weight(kg) / height(m)², while imperial is: BMI = (weight(lbs) × 703) / height(inches)²."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does BMI chart by age and gender work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While standard BMI categories are the same for all adults, BMI interpretation can vary by age and gender. Women tend to have more body fat than men with the same BMI. Older adults may have different body composition, and some ethnic groups may have different health risks at the same BMI level."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the BMI limitations I should know?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BMI limitations include: doesn't distinguish between muscle and fat mass, doesn't account for bone density or water weight, doesn't indicate where body fat is located, may not be accurate for athletes or elderly, and doesn't consider individual body composition differences."
+            }
+          }
+        ]
+      })
+    }
   ]
 })
 

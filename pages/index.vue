@@ -13,8 +13,9 @@
           </h1>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Calculate your BMI instantly with our free online BMI calculator. Get accurate Body Mass Index results, 
-            BMI categories, and personalized health recommendations. Our BMI tool supports both metric (kg/cm) and 
+            BMI categories, and personalized health recommendations. Our BMI calculator supports both metric (kg/cm) and 
             imperial (lbs/ft) units for precise BMI calculations. Perfect for weight management and health assessment.
+            Use our BMI calculator kg cm for metric measurements or BMI calculator for children and adults.
           </p>
         </div>
 
@@ -368,7 +369,7 @@
       <!-- 快速链接 -->
       <div class="mt-8 text-center">
         <div class="flex flex-wrap justify-center gap-4">
-                     <NuxtLink to="/about-bmi" class="block" title="Learn more about BMI calculation and categories">
+                     <NuxtLink to="/about-bmi" class="block" title="Learn more about BMI calculation, BMI accuracy, and BMI limitations">
                        <UButton
                          variant="outline"
                          color="primary"
@@ -380,7 +381,7 @@
                          Learn More About BMI
                        </UButton>
                      </NuxtLink>
-                     <NuxtLink to="/bmi-chart" class="block" title="View interactive BMI chart and weight ranges">
+                     <NuxtLink to="/bmi-chart" class="block" title="View interactive BMI chart by age and gender with weight ranges">
                        <UButton
                          variant="outline"
                          color="primary"
@@ -404,7 +405,7 @@ useHead({
   title: 'Free BMI Calculator 2024 - Calculate Body Mass Index Online | Instant Results',
   meta: [
     { name: 'description', content: 'Free BMI calculator online - Calculate your Body Mass Index instantly with our accurate tool. Get BMI categories, health recommendations, and personalized insights. Supports metric and imperial units.' },
-    { name: 'keywords', content: 'BMI calculator, body mass index calculator, free BMI calculator, BMI chart, BMI categories, weight calculator, health calculator, BMI formula, calculate BMI, BMI ranges, healthy weight, obesity calculator, underweight calculator, overweight calculator, BMI tool, body fat calculator, health assessment, weight management, fitness calculator, medical calculator, pfnalclub' },
+    { name: 'keywords', content: 'BMI calculator, body mass index calculator, free BMI calculator, BMI chart, BMI categories, weight calculator, health calculator, BMI formula, calculate BMI, BMI ranges, healthy weight, obesity calculator, underweight calculator, overweight calculator, BMI tool, body fat calculator, health assessment, weight management, fitness calculator, medical calculator, BMI calculator kg cm, BMI calculator for children, is BMI accurate, BMI chart by age and gender, BMI calculator metric imperial, BMI calculator online free, BMI calculator adult, BMI calculator women men, BMI calculator accuracy, BMI calculator formula, pfnalclub' },
     { name: 'author', content: 'BMI Calculator Team' },
     { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     { name: 'googlebot', content: 'index, follow' },

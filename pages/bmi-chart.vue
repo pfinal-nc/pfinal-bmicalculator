@@ -356,7 +356,7 @@ useHead({
   title: 'BMI Chart 2024 - Visual Guide to Body Mass Index | Weight Range Calculator',
   meta: [
     { name: 'description', content: 'Interactive BMI chart with weight ranges for different heights. Complete BMI tables for metric and imperial units. Find your healthy weight range and BMI category instantly. Free BMI chart tool.' },
-    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart, BMI reference chart, weight range calculator, pfnalclub' },
+    { name: 'keywords', content: 'BMI chart, BMI table, weight chart, height weight chart, BMI ranges, BMI categories, healthy weight chart, BMI calculator chart, weight range chart, BMI visual guide, body mass index chart, weight management chart, fitness chart, health chart, obesity chart, underweight chart, overweight chart, BMI tool, medical chart, BMI reference chart, weight range calculator, BMI chart by age and gender, BMI chart kg cm, BMI chart imperial, BMI chart metric, BMI chart for adults, BMI chart printable, pfnalclub' },
     { name: 'author', content: 'BMI Calculator Team' },
     { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' },
     { name: 'googlebot', content: 'index, follow' },
@@ -379,6 +379,70 @@ useHead({
   link: [
     { rel: 'canonical', href: 'https://bmicalculator.friday-go.icu/bmi-chart' },
     { rel: 'alternate', hreflang: 'en', href: 'https://bmicalculator.friday-go.icu/bmi-chart' }
+  ]
+})
+
+// HowTo Schema for BMI Chart page
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Use BMI Chart to Find Your Weight Range",
+        "description": "Learn how to use BMI chart to determine your healthy weight range and BMI category based on your height and weight.",
+        "image": "https://bmicalculator.friday-go.icu/logo.png",
+        "totalTime": "PT2M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "Your height measurement"
+          },
+          {
+            "@type": "HowToSupply", 
+            "name": "Your weight measurement"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "BMI Chart"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Find your height",
+            "text": "Locate your height in the left column of the BMI chart. Choose between metric (cm) or imperial (ft/in) units.",
+            "image": "https://bmicalculator.friday-go.icu/logo.png"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Read across the row",
+            "text": "Look across the row to see the weight ranges for each BMI category (Underweight, Normal, Overweight, Obese).",
+            "image": "https://bmicalculator.friday-go.icu/logo.png"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Compare your weight",
+            "text": "Compare your current weight to the ranges shown to determine your BMI category and healthy weight range.",
+            "image": "https://bmicalculator.friday-go.icu/logo.png"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Use BMI calculator for precise results",
+            "text": "For a precise BMI calculation, use our online BMI calculator which supports both metric and imperial units.",
+            "image": "https://bmicalculator.friday-go.icu/logo.png"
+          }
+        ]
+      })
+    }
   ]
 })
 
